@@ -8,4 +8,4 @@ COPY . /app
 WORKDIR /app
 
 RUN pip install -r requirements.txt
-ENTRYPOINT robot -d /Results TestCases/
+ENTRYPOINT robot --outputdir Results TestCases/

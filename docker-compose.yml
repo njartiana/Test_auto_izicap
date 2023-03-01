@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   izicap.api:
-    image: demo-token.jar:latest
+    image: demo-token:latest
     build:
       context: .
       dockerfile: izicap.api/Dockerfile
