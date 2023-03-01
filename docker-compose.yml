@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  rc.api:
+    image: demo-token.jar:latest
+    build:
+      context: .
+      dockerfile: rc.api/Dockerfile
+    ports:
+      - "9090:8080"
+
+  rc.robot:
+    image: izicapta/robotframework:latest
+    build:
+      context: .
+      dockerfile: rc.robot/Dockerfile
+    environment:
+      - api_endpoint=http://rc.api
+    depends_on:
+      - rc.api
+networks:
+    my-net:
+      driver: bridge
