@@ -7,7 +7,7 @@ Library     String
 
 Variables   ../../PageObjects/Base.py
 Resource    ../../Ressources/TokenControllerResources/TokenControllerKeywords.robot
-Resource    ../../Ressources/UserControllerRessources/UserControllerKeywords.robot
+Resource    ../../Ressources/UserCOntrollerRessources/UserControllerKeywords.robot
 
 
 *** Variables ***
@@ -32,4 +32,4 @@ Call without a valid unexpired token
 
 call with a valid unexpired non-admin token
     Create token    ${BaseUrl}  ${ApiTOken}  ${NewUserName}     ${NewUserPassword}
-    Create user with non admin token    ${BaseUrl}  ${ApiUsers}  ${userName}     ${userPassword}    ${token}
+    Create user with non admin token   ${BaseUrl}  ${ApiUsers}  ${userName}     ${userPassword}    ${token}

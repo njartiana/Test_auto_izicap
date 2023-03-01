@@ -8,4 +8,4 @@ COPY . /app
 WORKDIR /app
 
 RUN pip install -r requirements.txt
-ENTRYPOINT robot -d /Results TestCases/ManageTokens/TokenCreationTest.robot
+ENTRYPOINT robot -d /Results TestCases/ManageTokens/TokenCreationTest.robot TestCases/ManageUsers/UserCreationTest.robot

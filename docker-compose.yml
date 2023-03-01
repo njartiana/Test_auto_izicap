@@ -1,23 +1,24 @@
 version: '3.4'
 
 services:
-  rc.api:
+  izicap.api:
     image: demo-token.jar:latest
     build:
       context: .
-      dockerfile: rc.api/Dockerfile
+      dockerfile: izicap.api/Dockerfile
     ports:
       - "9090:8080"
 
-  rc.robot:
+
+  testauto.robot:
     image: izicapta/robotframework:latest
     build:
       context: .
-      dockerfile: rc.robot/Dockerfile
+      dockerfile: testauto.robot/Dockerfile
     environment:
-      - api_endpoint=http://rc.api
+      - api_endpoint=http://izicap.api
     depends_on:
-      - rc.api
+      - izicap.api
 networks:
     my-net:
       driver: bridge

@@ -34,4 +34,4 @@ Refresh an existing and unexpired token
 Generate 401 status with wrong username/password
     ${invalideUserName}=     Generate Random String  length=7
     ${invalideUserPassword}=     Generate Random String  length=7
-    Used invalide username/password     ${BaseUrl}  ${ApiTOken}  ${invalideUserName}     ${invalideUserPassword}
+    Used invalide username/password     ${BaseUrl}  ${ApiToken}  ${invalideUserName}     ${invalideUserPassword}
