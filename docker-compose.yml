@@ -19,7 +19,7 @@ services:
       - izicap.api
     command: sh -c "/wait && robot --outputdir Results TestCases/"
     environment:
-      - WAIT_HOSTS=http://izicap.api:9090
+      - WAIT_HOSTS=http://izicap.api:8080
       - WAIT_HOSTS_TIMEOUT=30
 
 networks:
