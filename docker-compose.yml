@@ -1,24 +1,27 @@
-version: '3.4'
+version: '3.6'
 
 services:
-  izicap.api:
-    image: demo-token:latest
+  izicap_api:
+    image: izicap_api:latest
     build:
       context: .
-      dockerfile: izicap.api/Dockerfile
+      dockerfile: izicap_api/Dockerfile
     ports:
       - "9090:8080"
 
 
-  testauto.robot:
-    image: izicapta/robotframework:latest
+  izicapta_robotframework:
+    image: izicapta_robotframework:latest
     build:
       context: .
-      dockerfile: testauto.robot/Dockerfile
-    environment:
-      - api_endpoint=http://izicap.api
+      dockerfile: izicapta_robotframework/Dockerfile
     depends_on:
-      - izicap.api
+      - izicap_api
+    command: sh -c "/wait && robot --outputdir Results TestCases/"
+    environment:
+      - WAIT_HOSTS=http://izicap_api:9090
+      - WAIT_HOSTS_TIMEOUT=30
+
 networks:
     my-net:
       driver: bridge

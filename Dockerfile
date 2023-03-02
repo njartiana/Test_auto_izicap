@@ -1,11 +1,20 @@
 FROM ubuntu
+
 RUN apt-get update
 
 RUN apt install -y python3.10
 RUN apt install -y python3-pip
 
+ENV WAIT_VERSION 2.9.0
+ADD https://github.com/ufoscout/docker-compose-wait/releases/download/$WAIT_VERSION/wait /wait
+
+RUN chmod +x /wait
+
 COPY . /app
 WORKDIR /app
 
 RUN pip install -r requirements.txt
+
+
 ENTRYPOINT robot --outputdir Results TestCases/
+#CMD ["robot", "--outputdir Results TestCases/"]
