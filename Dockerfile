@@ -13,7 +13,7 @@ COPY . /app
 WORKDIR /app
 
 RUN pip install -r requirements.txt
+CMD mkdir "Result"
 
-
-CMD /wait && robot --outputdir /Results TestCases/ManageTokens/TokenCreationTest.robot TestCases/ManageUsers/UserCreationTest.robot
+CMD /wait && robot --outputdir Results TestCases/ManageTokens/TokenCreationTest.robot TestCases/ManageUsers/UserCreationTest.robot
 #ENTRYPOINT robot --outputdir Results TestCases/
