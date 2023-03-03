@@ -9,11 +9,11 @@ ENV WAIT_VERSION 2.9.0
 ADD https://github.com/ufoscout/docker-compose-wait/releases/download/$WAIT_VERSION/wait /wait
 RUN chmod +x /wait
 
-COPY . .
-WORKDIR .
+COPY . ./
+WORKDIR ./
 
 RUN pip install -r requirements.txt
 
 
-CMD /wait && robot --outputdir Results TestCases/ManageTokens/TokenCreationTest.robot TestCases/ManageUsers/UserCreationTest.robot
+CMD /wait && robot --outputdir /Results TestCases/ManageTokens/TokenCreationTest.robot TestCases/ManageUsers/UserCreationTest.robot
 #ENTRYPOINT robot --outputdir Results TestCases/
