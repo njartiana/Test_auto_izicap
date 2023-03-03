@@ -9,12 +9,8 @@ ENV WAIT_VERSION 2.9.0
 ADD https://github.com/ufoscout/docker-compose-wait/releases/download/$WAIT_VERSION/wait /wait
 RUN chmod +x /wait
 
-RUN apt mkdir "Results"
-ARG REPORT_FILE=./Results
-COPY ${REPORT_FILE} ./Results
-
-#COPY . /app
-#WORKDIR /app
+COPY . .
+WORKDIR .
 
 RUN pip install -r requirements.txt
 
