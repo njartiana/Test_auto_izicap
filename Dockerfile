@@ -15,5 +15,5 @@ WORKDIR /app
 RUN pip install -r requirements.txt
 
 
-CMD /wait && pabot --outputdir Results TestCases/
+CMD /wait && robot --outputdir Results TestCases/ManageTokens/TokenCreationTest.robot TestCases/ManageUsers/UserCreationTest.robot
 #ENTRYPOINT robot --outputdir Results TestCases/

@@ -17,8 +17,9 @@ services:
       dockerfile: izicapta_robotframework/Dockerfile
     depends_on:
       - izicap.api
-    command: sh -c "/wait && pabot --outputdir Results TestCases/"
+    command: sh -c "/wait && robot --outputdir Results TestCases/ManageTokens/TokenCreationTest.robot TestCases/ManageUsers/UserCreationTest.robot"
     environment:
+      - api_endpoint=http://izicap.api
       - WAIT_HOSTS=izicap.api:8080
       - WAIT_TIMEOUT=300
       - WAIT_SLEEP_INTERVAL=30
