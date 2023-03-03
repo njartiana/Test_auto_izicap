@@ -19,4 +19,6 @@ TA : https://github.com/njartiana/Test_auto_izicap
 ***** How to run the code? *****
 Create 2 jobs in pipeline option. Use Pipeline script from SCM to use Jenkinsfile.
 The first will be named : Java_API_IZICAP_JOB and the second : TA_IZICAP_Robot_Framework. By using these 2 name, you don't need to touch on the Jenkinsfiles but just runing the project.
-NB : The TA_IZICAP_Robot_Framework will be called automaticly by Java_API_IZICAP_JOB at the end of the build and the test will be start after.
+NB : 
+The TA_IZICAP_Robot_Framework will be called automaticly by Java_API_IZICAP_JOB at the end of the build and the test will be start after.
+At the end of the build, all container will be stoped and deleted. The image of the projects also
